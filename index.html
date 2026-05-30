@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rezki Wening Hayuningtyas — Content Writer & Copywriter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green: #C2DC80;
+      --pink-light: #EA9CAF;
+      --pink-dark: #D56989;
+      --lilac: #F3EEF1;
+      --white: #ffffff;
+      --text-dark: #2d2340;
+      --text-mid: #5a4e6e;
+      --text-light: #9b8daa;
+      --card-bg: rgba(255,255,255,0.75);
+      --shadow: 0 8px 32px rgba(180,120,160,0.10);
+      --shadow-hover: 0 16px 48px rgba(180,120,160,0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--lilac);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── DREAMY BACKGROUND ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 10% 10%, rgba(194,220,128,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 90% 20%, rgba(234,156,175,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 55% 55% at 50% 80%, rgba(213,105,137,0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 80% 80% at 50% 50%, rgba(243,238,241,0.90) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Floating blobs */
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+      animation: float 10s ease-in-out infinite alternate;
+    }
+    .blob-1 { width: 380px; height: 380px; background: var(--green); top: -80px; left: -80px; animation-duration: 12s; }
+    .blob-2 { width: 300px; height: 300px; background: var(--pink-light); top: 40%; right: -60px; animation-duration: 9s; animation-delay: -3s; }
+    .blob-3 { width: 250px; height: 250px; background: var(--pink-dark); bottom: 10%; left: 20%; animation-duration: 14s; animation-delay: -6s; }
+
+    @keyframes float {
+      from { transform: translateY(0) scale(1); }
+      to   { transform: translateY(30px) scale(1.06); }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 6vw;
+      background: rgba(243,238,241,0.72);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(213,105,137,0.10);
+    }
+    .nav-logo {
+      font-weight: 800; font-size: 1.1rem; color: var(--pink-dark);
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--text-dark); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; font-size: 0.85rem; font-weight: 500;
+      color: var(--text-mid); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--pink-dark); }
+    .nav-hire {
+      background: var(--pink-dark); color: #fff;
+      padding: 9px 22px; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; transition: background 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .nav-hire:hover { background: #c04e77; transform: translateY(-1px); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text-dark); border-radius: 2px; transition: all 0.3s; }
+
+    /* ── MAIN WRAPPER ── */
+    main { position: relative; z-index: 1; padding-top: 80px; }
+
+    section { padding: 80px 6vw; max-width: 1100px; margin: 0 auto; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: calc(100vh - 80px);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 48px; flex-wrap: wrap;
+      padding-top: 40px; padding-bottom: 40px;
+    }
+    .hero-content { flex: 1; min-width: 280px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(194,220,128,0.25);
+      border: 1px solid rgba(194,220,128,0.5);
+      color: #5a7a20; font-size: 0.78rem; font-weight: 600;
+      padding: 6px 16px; border-radius: 50px;
+      letter-spacing: 0.5px; margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .hero-badge::before { content: '✦'; font-size: 10px; }
+    .hero-name {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 800; line-height: 1.1;
+      color: var(--text-dark); margin-bottom: 8px;
+    }
+    .hero-name .accent { color: var(--pink-dark); font-style: italic; }
+    .hero-tagline {
+      font-size: 0.92rem; font-weight: 500; color: var(--text-light);
+      letter-spacing: 1.5px; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-desc {
+      font-size: 0.95rem; line-height: 1.75; color: var(--text-mid);
+      max-width: 500px; margin-bottom: 32px;
+    }
+    .hero-stats {
+      display: flex; gap: 28px; margin-bottom: 36px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 1.6rem; font-weight: 800; color: var(--pink-dark); line-height: 1; }
+    .stat-label { font-size: 0.72rem; color: var(--text-light); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--pink-dark); color: #fff;
+      padding: 13px 32px; border-radius: 50px;
+      font-size: 0.92rem; font-weight: 600;
+      text-decoration: none; transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(213,105,137,0.35);
+    }
+    .btn-primary:hover { background: #c04e77; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(213,105,137,0.45); }
+    .btn-secondary {
+      background: transparent; color: var(--text-dark);
+      padding: 13px 32px; border-radius: 50px;
+      font-size: 0.92rem; font-weight: 600;
+      text-decoration: none; border: 2px solid rgba(45,35,64,0.15);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--pink-dark); color: var(--pink-dark); transform: translateY(-2px); }
+
+    .hero-photo-wrap {
+      flex: 0 0 auto; display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .hero-photo-outer {
+      position: relative; width: 300px; height: 300px;
+    }
+    .hero-photo-ring {
+      position: absolute; inset: -12px;
+      border-radius: 50%;
+      background: conic-gradient(var(--green), var(--pink-light), var(--pink-dark), var(--green));
+      animation: spin 8s linear infinite;
+    }
+    .hero-photo-ring::after {
+      content: '';
+      position: absolute; inset: 6px;
+      background: var(--lilac);
+      border-radius: 50%;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .hero-photo {
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      overflow: hidden;
+      z-index: 2;
+    }
+    .hero-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+    }
+    .hero-deco {
+      position: absolute; z-index: 3;
+      font-size: 1.8rem; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+    }
+    .deco-1 { top: -20px; right: -10px; transform: rotate(15deg); animation: bobble 3s ease-in-out infinite; }
+    .deco-2 { bottom: -10px; right: -20px; transform: rotate(-10deg); animation: bobble 4s ease-in-out infinite reverse; }
+    .deco-3 { bottom: 20px; left: -30px; animation: bobble 3.5s ease-in-out infinite 1s; }
+    @keyframes bobble {
+      0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+      50% { transform: translateY(-8px) rotate(var(--r, 5deg)); }
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.72rem; font-weight: 700; color: var(--pink-dark);
+      text-transform: uppercase; letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+    .section-tag::before { content: '✦'; }
+    h2.section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800; color: var(--text-dark); margin-bottom: 8px;
+    }
+    h2.section-title .italic { font-style: italic; color: var(--pink-dark); }
+    .section-sub {
+      font-size: 0.9rem; color: var(--text-light); margin-bottom: 44px; max-width: 480px;
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: none; }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 16px;
+    }
+    .skill-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(213,105,137,0.12);
+      border-radius: 20px;
+      padding: 24px 16px;
+      text-align: center;
+      transition: all 0.25s;
+      box-shadow: var(--shadow);
+      cursor: default;
+    }
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--pink-light);
+    }
+    .skill-icon { font-size: 1.8rem; margin-bottom: 10px; display: block; }
+    .skill-name { font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 4px; }
+    .skill-level {
+      font-size: 0.7rem; color: var(--text-light); margin-bottom: 10px;
+    }
+    .skill-bar { height: 4px; background: rgba(213,105,137,0.12); border-radius: 10px; overflow: hidden; }
+    .skill-fill { height: 100%; border-radius: 10px; background: linear-gradient(90deg, var(--pink-light), var(--pink-dark)); }
+    .skill-soft .skill-fill { background: linear-gradient(90deg, var(--green), #8fc040); }
+
+    .skills-section-label {
+      font-size: 0.75rem; font-weight: 700; color: var(--text-light);
+      text-transform: uppercase; letter-spacing: 2px;
+      margin: 32px 0 14px;
+    }
+
+    /* ── EXPERIENCE ── */
+    .experience-grid { display: grid; gap: 20px; }
+    .exp-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(213,105,137,0.10);
+      border-radius: 24px;
+      padding: 28px 32px;
+      display: flex; gap: 24px;
+      transition: all 0.25s;
+      box-shadow: var(--shadow);
+    }
+    .exp-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: var(--pink-light); }
+    .exp-dot {
+      flex: 0 0 auto;
+      width: 48px; height: 48px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .exp-dot.green { background: rgba(194,220,128,0.25); }
+    .exp-dot.pink { background: rgba(234,156,175,0.25); }
+    .exp-dot.rose { background: rgba(213,105,137,0.15); }
+    .exp-body { flex: 1; }
+    .exp-company { font-size: 0.75rem; font-weight: 700; color: var(--pink-dark); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+    .exp-role { font-size: 1.05rem; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+    .exp-period { font-size: 0.78rem; color: var(--text-light); margin-bottom: 12px; }
+    .exp-list { list-style: none; }
+    .exp-list li {
+      font-size: 0.87rem; color: var(--text-mid); padding: 3px 0 3px 18px;
+      position: relative; line-height: 1.6;
+    }
+    .exp-list li::before { content: '→'; position: absolute; left: 0; color: var(--pink-light); font-size: 0.8rem; }
+    .exp-achievement {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: linear-gradient(135deg, rgba(194,220,128,0.3), rgba(234,156,175,0.2));
+      border: 1px solid rgba(194,220,128,0.4);
+      color: #5a7a20; font-size: 0.75rem; font-weight: 600;
+      padding: 4px 12px; border-radius: 50px; margin-top: 10px;
+    }
+
+    /* ── ACHIEVEMENTS ── */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px; margin-top: 16px;
+    }
+    .achievement-card {
+      background: linear-gradient(135deg, rgba(213,105,137,0.10), rgba(234,156,175,0.08));
+      border: 1px solid rgba(213,105,137,0.15);
+      border-radius: 20px; padding: 24px;
+      text-align: center; transition: all 0.25s;
+    }
+    .achievement-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .achievement-num { font-size: 2rem; font-weight: 800; color: var(--pink-dark); line-height: 1; }
+    .achievement-label { font-size: 0.82rem; color: var(--text-mid); margin-top: 6px; line-height: 1.4; }
+
+    /* ── EDUCATION ── */
+    .education-list { display: flex; flex-direction: column; gap: 16px; }
+    .edu-card {
+      background: var(--card-bg); backdrop-filter: blur(12px);
+      border: 1px solid rgba(213,105,137,0.10);
+      border-radius: 20px; padding: 24px 28px;
+      display: flex; align-items: flex-start; gap: 20px;
+      transition: all 0.25s; box-shadow: var(--shadow);
+    }
+    .edu-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .edu-icon {
+      flex: 0 0 auto;
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(194,220,128,0.25);
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .edu-body {}
+    .edu-degree { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 2px; }
+    .edu-school { font-size: 0.88rem; color: var(--pink-dark); font-weight: 600; margin-bottom: 4px; }
+    .edu-year { font-size: 0.78rem; color: var(--text-light); margin-bottom: 10px; }
+    .edu-notes { list-style: none; }
+    .edu-notes li { font-size: 0.82rem; color: var(--text-mid); padding: 2px 0 2px 16px; position: relative; }
+    .edu-notes li::before { content: '◆'; position: absolute; left: 0; color: var(--green); font-size: 0.55rem; top: 5px; }
+
+    /* ── CONTACT ── */
+    .contact-wrap {
+      background: linear-gradient(135deg, #2d2340, #3d2d5a);
+      border-radius: 32px; padding: 60px 48px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .contact-wrap::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 30% 30%, rgba(194,220,128,0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse 50% 50% at 70% 70%, rgba(234,156,175,0.15) 0%, transparent 60%);
+    }
+    .contact-wrap > * { position: relative; z-index: 1; }
+    .contact-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.72rem; font-weight: 700; color: var(--green);
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px;
+    }
+    .contact-tag::before { content: '✦'; }
+    .contact-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .contact-title .italic { font-style: italic; color: var(--pink-light); }
+    .contact-sub { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 40px; }
+    .contact-links {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.85); font-size: 0.88rem; font-weight: 500;
+      padding: 12px 22px; border-radius: 50px;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .contact-link:hover { background: rgba(255,255,255,0.16); transform: translateY(-2px); color: #fff; }
+    .contact-link .icon { font-size: 1.1rem; }
+    .contact-cta {
+      background: linear-gradient(135deg, var(--pink-light), var(--pink-dark));
+      color: #fff; padding: 14px 40px; border-radius: 50px;
+      font-size: 1rem; font-weight: 700;
+      text-decoration: none; display: inline-block;
+      box-shadow: 0 8px 28px rgba(213,105,137,0.4);
+      transition: all 0.2s;
+    }
+    .contact-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(213,105,137,0.5); }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      text-align: center; padding: 28px 6vw;
+      font-size: 0.8rem; color: var(--text-light);
+      border-top: 1px solid rgba(213,105,137,0.1);
+    }
+    footer strong { color: var(--pink-dark); }
+
+    /* ── FADE IN ANIMATIONS ── */
+    .fade-in {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: fixed; inset: 72px 0 0 0;
+        background: rgba(243,238,241,0.97); backdrop-filter: blur(20px);
+        align-items: center; justify-content: center;
+        gap: 28px; z-index: 99;
+      }
+      .nav-links.open a { font-size: 1.1rem; }
+      .hero { flex-direction: column-reverse; text-align: center; padding-top: 24px; }
+      .hero-content { display: flex; flex-direction: column; align-items: center; }
+      .hero-photo-outer { width: 220px; height: 220px; }
+      .hero-stats { justify-content: center; }
+      .hero-btns { justify-content: center; }
+      .exp-card { flex-direction: column; gap: 14px; }
+      .contact-wrap { padding: 40px 24px; }
+      section { padding: 60px 5vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Rezki<span>.dev</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:rezkiweningh@gmail.com" class="nav-hire">Hire Me ✦</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="hero-content fade-in">
+        <div class="hero-badge">Content Writer · Copywriter · Editor</div>
+        <h1 class="hero-name">Rezki Wening<br><span class="accent">Hayuningtyas</span></h1>
+        <p class="hero-tagline">SEO · Copywriting · Content Strategy</p>
+        <p class="hero-desc">
+          A professional SEO Content Writer with 3+ years of experience across online media platforms, edutech startups, and digital marketing agencies. I specialize in crafting clear, informative, and compelling content that aligns with search intent and trending topics.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">3+</div>
+            <div class="stat-label">Years Exp.</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">8+</div>
+            <div class="stat-label">Companies</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">2.5M+</div>
+            <div class="stat-label">Pageviews</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">17M+</div>
+            <div class="stat-label">Impressions</div>
+          </div>
+        </div>
+        <div class="hero-btns">
+          <a href="mailto:rezkiweningh@gmail.com" class="btn-primary">✉ Hire Me</a>
+          <a href="#experience" class="btn-secondary">View My Work</a>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap fade-in">
+        <div class="hero-photo-outer">
+          <div class="hero-photo-ring"></div>
+          <div class="hero-photo">
+            <img src="profile.jpg" alt="Rezki Wening Hayuningtyas" />
+          </div>
+          <span class="hero-deco deco-1">📚</span>
+          <span class="hero-deco deco-2">✍️</span>
+          <span class="hero-deco deco-3">💡</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-tag">What I Do</div>
+      <h2 class="section-title">Skills & <span class="italic">Expertise</span></h2>
+      <p class="section-sub">A blend of hard and soft skills refined through years of real-world experience.</p>
+
+      <p class="skills-section-label">Hard Skills</p>
+      <div class="skills-grid fade-in">
+        <div class="skill-card">
+          <span class="skill-icon">✍️</span>
+          <div class="skill-name">Content Writing</div>
+          <div class="skill-level">Advanced</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">🎯</span>
+          <div class="skill-name">Copywriting</div>
+          <div class="skill-level">Advanced</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">✏️</span>
+          <div class="skill-name">Content Editing</div>
+          <div class="skill-level">Advanced</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">🔍</span>
+          <div class="skill-name">SEO</div>
+          <div class="skill-level">Advanced</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">📝</span>
+          <div class="skill-name">Script Writing</div>
+          <div class="skill-level">Advanced</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">📊</span>
+          <div class="skill-name">Semrush</div>
+          <div class="skill-level">Intermediate</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">🌐</span>
+          <div class="skill-name">WordPress</div>
+          <div class="skill-level">Advanced</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">📈</span>
+          <div class="skill-name">Google Analytics</div>
+          <div class="skill-level">Intermediate</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">📡</span>
+          <div class="skill-name">Google Trends</div>
+          <div class="skill-level">Advanced</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">🎨</span>
+          <div class="skill-name">Canva</div>
+          <div class="skill-level">Advanced</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+      </div>
+
+      <p class="skills-section-label" style="margin-top:36px">Soft Skills</p>
+      <div class="skills-grid fade-in">
+        <div class="skill-card skill-soft">
+          <span class="skill-icon">🤝</span>
+          <div class="skill-name">Teamwork</div>
+          <div class="skill-level">Native</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:96%"></div></div>
+        </div>
+        <div class="skill-card skill-soft">
+          <span class="skill-icon">🌟</span>
+          <div class="skill-name">Leadership</div>
+          <div class="skill-level">Proficient</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-card skill-soft">
+          <span class="skill-icon">⏰</span>
+          <div class="skill-name">Time Management</div>
+          <div class="skill-level">Proficient</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-card skill-soft">
+          <span class="skill-icon">🇮🇩</span>
+          <div class="skill-name">Bahasa Indonesia</div>
+          <div class="skill-level">Native</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
+        </div>
+        <div class="skill-card skill-soft">
+          <span class="skill-icon">🇬🇧</span>
+          <div class="skill-name">English</div>
+          <div class="skill-level">Intermediate</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:68%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-tag">Career Journey</div>
+      <h2 class="section-title">Work <span class="italic">Experience</span></h2>
+      <p class="section-sub">A track record of delivering impactful content across diverse industries.</p>
+
+      <!-- Achievements -->
+      <div class="achievements-grid fade-in">
+        <div class="achievement-card">
+          <div class="achievement-num">2.5M+</div>
+          <div class="achievement-label">Pageviews in a single month at Kontan (Momsmoney)</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-num">17M+</div>
+          <div class="achievement-label">Total impressions from 2,200+ content pieces at A-Creative</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-num">2.2M+</div>
+          <div class="achievement-label">Total views generated over 7 months</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-num">#1</div>
+          <div class="achievement-label">Best Mentee Copywriter award at Vocasia (July 2022)</div>
+        </div>
+      </div>
+
+      <div style="height:36px"></div>
+
+      <div class="experience-grid fade-in">
+        <div class="exp-card">
+          <div class="exp-dot green">🍯</div>
+          <div class="exp-body">
+            <div class="exp-company">Jims Honey</div>
+            <div class="exp-role">SEO Content & Copywriter</div>
+            <div class="exp-period">May 2025 — Present</div>
+            <ul class="exp-list">
+              <li>Writing SEO articles for the blog covering OOTD inspiration, outfit tips & product recommendations.</li>
+              <li>Creating Instagram feed copywriting for @jimshoneyofficial_surabaya and @jimshoneymakassar.id.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-dot pink">📰</div>
+          <div class="exp-body">
+            <div class="exp-company">Kontan (Momsmoney)</div>
+            <div class="exp-role">Content Writer</div>
+            <div class="exp-period">February 2024 — Present</div>
+            <ul class="exp-list">
+              <li>Researching keywords for music, games, and health topics.</li>
+              <li>Writing 8 articles per day with full on-page SEO optimization.</li>
+            </ul>
+            <span class="exp-achievement">🏆 2.5M pageviews in January 2025</span>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-dot rose">🌐</div>
+          <div class="exp-body">
+            <div class="exp-company">Amsa Studio</div>
+            <div class="exp-role">Content Writer</div>
+            <div class="exp-period">November 2023 — February 2024</div>
+            <ul class="exp-list">
+              <li>Writing bilingual articles (Bahasa Indonesia & English) for company and client websites.</li>
+              <li>Optimizing on-page SEO across all published content.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-dot green">📝</div>
+          <div class="exp-body">
+            <div class="exp-company">Makinrajin</div>
+            <div class="exp-role">SEO Content Writer</div>
+            <div class="exp-period">August 2023 — February 2024</div>
+            <ul class="exp-list">
+              <li>Writing SEO-friendly articles across diverse themes and topics for multiple clients.</li>
+              <li>Sourcing and providing relevant visuals to complement articles.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-dot pink">💊</div>
+          <div class="exp-body">
+            <div class="exp-company">A-Creative</div>
+            <div class="exp-role">Copywriter</div>
+            <div class="exp-period">December 2022 — June 2023</div>
+            <ul class="exp-list">
+              <li>Creating daily short-form content for a women's health application.</li>
+              <li>Providing and editing complementary visuals using Canva.</li>
+            </ul>
+            <span class="exp-achievement">🏆 17M impressions · 2.2M views from 2.2K posts</span>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-dot rose">🗞️</div>
+          <div class="exp-body">
+            <div class="exp-company">Kompas.com</div>
+            <div class="exp-role">Content Writer Intern</div>
+            <div class="exp-period">October 2022</div>
+            <ul class="exp-list">
+              <li>Researching keywords for movie synopses.</li>
+              <li>Writing and optimizing on-page SEO for each article.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-dot green">🎓</div>
+          <div class="exp-body">
+            <div class="exp-company">Vocasia</div>
+            <div class="exp-role">Copywriter Intern</div>
+            <div class="exp-period">February 2022 — July 2022</div>
+            <ul class="exp-list">
+              <li>Writing blog articles and optimizing on-page SEO.</li>
+              <li>Creating social media captions, email marketing, and landing page copy.</li>
+              <li>Producing Instagram feed and Reels content for @voca.pedia.</li>
+            </ul>
+            <span class="exp-achievement">🏆 Best Mentee Copywriter — July 2022</span>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-dot pink">💬</div>
+          <div class="exp-body">
+            <div class="exp-company">Hipwee</div>
+            <div class="exp-role">Contributing Writer</div>
+            <div class="exp-period">December 2021 — June 2022</div>
+            <ul class="exp-list">
+              <li>Writing articles on motivation, tips & tricks, and entertainment topics.</li>
+            </ul>
+            <span class="exp-achievement">🏆 Best Content Creator — March 2022</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="section-tag">Academic Background</div>
+      <h2 class="section-title">My <span class="italic">Education</span></h2>
+      <p class="section-sub">Formal education that shaped my language and creative foundation.</p>
+
+      <div class="education-list fade-in">
+        <div class="edu-card">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-body">
+            <div class="edu-degree">S1 Indonesian Literature (Sastra Indonesia)</div>
+            <div class="edu-school">Universitas Negeri Surabaya (UNESA)</div>
+            <div class="edu-year">Graduated 2023</div>
+            <ul class="edu-notes">
+              <li>Editor of Wirasana literary magazine (coursework)</li>
+              <li>Participant in KMMI Fiction Film at Universitas Pendidikan Indonesia</li>
+              <li>Participant in the Independent Entrepreneur program at Ciputra University</li>
+            </ul>
+          </div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">📖</div>
+          <div class="edu-body">
+            <div class="edu-degree">Language and Cultural Sciences</div>
+            <div class="edu-school">MAN 3 Kediri</div>
+            <div class="edu-year">Senior High School</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="contact-wrap fade-in">
+        <div class="contact-tag">Let's Connect</div>
+        <h2 class="contact-title">Let's <span class="italic">Work Together</span></h2>
+        <p class="contact-sub">Interested in collaborating or have a project in mind? Reach out through any of the channels below.</p>
+        <div class="contact-links">
+          <a href="mailto:rezkiweningh@gmail.com" class="contact-link">
+            <span class="icon">✉️</span> rezkiweningh@gmail.com
+          </a>
+          <a href="https://wa.me/6281555961311" class="contact-link" target="_blank" rel="noopener">
+            <span class="icon">📱</span> +62 815-5596-1311
+          </a>
+          <a href="https://instagram.com/rezkiweningh" class="contact-link" target="_blank" rel="noopener">
+            <span class="icon">📸</span> @rezkiweningh
+          </a>
+          <a href="https://www.linkedin.com/in/rezki-wening-hayuningtyas" class="contact-link" target="_blank" rel="noopener">
+            <span class="icon">💼</span> LinkedIn
+          </a>
+          <a href="https://rezkiweninghayuningtyas.blogspot.com" class="contact-link" target="_blank" rel="noopener">
+            <span class="icon">🌐</span> Blog
+          </a>
+        </div>
+        <a href="mailto:rezkiweningh@gmail.com" class="contact-cta">Send Me a Message ✦</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 <strong>Rezki Wening Hayuningtyas</strong> · Content Writer & Copywriter · Jombang, Jawa Timur, Indonesia</p>
+  </footer>
+
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Fade in on scroll
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
